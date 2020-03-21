@@ -1,0 +1,13 @@
+{
+    "name": "tommy-dai/screenshot",
+    "description": "小程序海报，截图服务，屏幕截图",
+    "authors": [
+        {
+            "name": "daijun",
+            "email": "daijunooo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    }
+}
