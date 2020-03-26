@@ -9,21 +9,22 @@ class ScreenShotWINNT extends ScreenShot implements \Screenshot\Contracts\Screen
 {
     public function isRunning()
     {
-        return 'winnt';
+        exec('wmic process where name="phantomjs.exe" get name', $output);
+
+        return (bool) array_shift($output);
     }
 
     public function start()
     {
-        $shell = "start /b %sphantomjs %sserver.js > %sscreenshot.log";
-        $binPath = $this->binPath();
-        $scriptPath = $this->scriptPath();
-        $logPath = $this->logPath();
-        $command = sprintf($shell, $binPath, $scriptPath, $logPath);
-        exec(escapeshellcmd($command));
+        $shell = "start /B %sphantomjs %sserver.js >> %s";
+
+        $command = sprintf($shell, $this->binPath(), $this->scriptPath(), $this->logFile());
+
+        exec($command);
     }
 
     public function stop()
     {
-        // TODO: Implement stop() method.
+        exec('wmic process where name="phantomjs.exe" delete');
     }
 }

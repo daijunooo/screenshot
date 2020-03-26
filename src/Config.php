@@ -15,8 +15,6 @@ class Config
 
     protected $height = 1334;
 
-    protected $imageType = 'PNG';
-
     protected $logPath = '';
 
     public function getPort()
@@ -79,18 +77,6 @@ class Config
         return $this;
     }
 
-    public function getImageType()
-    {
-        return $this->imageType;
-    }
-
-    public function setImageType($imageType)
-    {
-        $this->imageType = $imageType;
-
-        return $this;
-    }
-
     /**
      * @return string
      */
@@ -134,7 +120,7 @@ var service = server.listen({$this->port}, function (request, response) {
             response.write(0);
         } else {
             console.log(address);
-            response.write(page.renderBase64('{$this->imageType}'));
+            response.write(page.renderBase64('PNG'));
         }
         response.close();
         page.close();

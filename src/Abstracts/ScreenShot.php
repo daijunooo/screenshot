@@ -35,4 +35,15 @@ abstract class ScreenShot
         return $this->basePath() . 'logs' . DIRECTORY_SEPARATOR;
     }
 
+    protected function logFile()
+    {
+        $logFile = $this->logPath() . 'screenshot.log';
+
+        if (!is_dir(dirname($logFile))) mkdir(dirname($logFile), 0777, true);
+
+        if (!file_exists($logFile)) file_put_contents($logFile, '', FILE_APPEND);
+
+        return $logFile;
+    }
+
 }

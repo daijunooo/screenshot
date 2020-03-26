@@ -4,4 +4,6 @@ require '../vendor/autoload.php';
 
 $ed = new \Screenshot\ScreenShot();
 
-$ed->start();
+//$ed->shot('http://www.baidu.com');
+
+$ed->stop();

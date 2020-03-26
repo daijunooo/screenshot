@@ -42,13 +42,27 @@ class ScreenShot
 
     public function start()
     {
+        if ($this->isRunning()) return;
+
         $this->config->compileServer();
+
         $this->server->start();
     }
 
     public function stop()
     {
         $this->server->stop();
+    }
+
+    public function shot($url)
+    {
+        $this->start();
+
+        header("content-type: image/png");
+
+        $img = file_get_contents('http://127.0.0.1:' . $this->config->getPort() . '/?a=' . $url);
+
+        echo base64_decode($img);
     }
 
 }
