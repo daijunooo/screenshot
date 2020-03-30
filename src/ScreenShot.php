@@ -31,7 +31,7 @@ class ScreenShot
             case 'Linux':
                 return new ScreenShotLinux($this->config);
             default:
-                throw new ScreenServerException('暂不支持此操作系统');
+                throw new ScreenServerException('暂不支持此操作系统', 400);
         }
     }
 

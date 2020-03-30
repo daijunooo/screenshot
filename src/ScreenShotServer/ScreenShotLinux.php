@@ -10,16 +10,22 @@ class ScreenShotLinux extends ScreenShot implements \Screenshot\Contracts\Screen
 
     public function isRunning()
     {
-        return 'linux';
+        exec('ps | grep phantomjs', $output);
+
+        return count($output);
     }
 
     public function start()
     {
-        // TODO: Implement start() method.
+        $shell = "%sphantomjs %sserver.js >> %s";
+
+        $command = sprintf($shell, $this->binPath(), $this->scriptPath(), $this->logFile());
+
+        exec($command);
     }
 
     public function stop()
     {
-        // TODO: Implement stop() method.
+        exec('pkill -f "phantomjs"');
     }
 }
