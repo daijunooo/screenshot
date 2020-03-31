@@ -67,11 +67,11 @@ $screenshot = new \Screenshot\ScreenShot($config);
 $screenshot->shot('http://image.baidu.com');
 ```
 
-> 注意：修改配置项需要关闭当前截图服务，重新开启。
+> 注意：修改配置项不会立即生效，关闭服务重新开启后生效。
 
 #### 关闭步骤
 
-- 改为下面代码然后通过浏览器访问一次就可以关闭服务了
+- 改为下面代码然后通过浏览器访问一次，服务就会关闭。重新访问上面的代码就生效了。
 
 ```php
 $screenshot = new \Screenshot\ScreenShot();
@@ -93,6 +93,7 @@ $screenshot->start();
 
 #### 开启截图服务 $screenshot->start() 之后能干什么
 1. 可以通过访问 http://127.0.0.1:8181/?a=http://image.baidu.com 获取截图的 base64 字符串
-2. 可以部署多台截图服务用nginx做负载均衡
+2. 可以把截图服务单独部署，通过访问 http://ip地址:8181/?a=http://image.baidu.com 获取截图的 base64 字符串
+3. 可以部署多台截图服务用nginx做负载均衡
 
 #### 更多疑问请提 issues
