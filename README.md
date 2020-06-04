@@ -18,7 +18,7 @@ $screenshot->shot('http://image.baidu.com');
 > 注意：第一次访问图片有可能不出来，后面就不会出现了
 
 ##### 不出意外就可以获得百度图片的网页截图
-![](http://daijunooo-img.test.upcdn.net/blog/baiduimg.png)
+![](https://s1.ax1x.com/2020/04/02/GYtJWn.png)
 
 #### 可选配置项
 
