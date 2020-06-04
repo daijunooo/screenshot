@@ -65,4 +65,13 @@ class ScreenShot
         echo base64_decode($img);
     }
 
+    public function getShot($url)
+    {
+        $this->start();
+
+        $img = file_get_contents('http://127.0.0.1:' . $this->config->getPort() . '/?a=' . $url);
+
+        return $img;
+    }
+
 }

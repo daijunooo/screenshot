@@ -81,6 +81,15 @@ $screenshot->stop();
 ```
 
 
+#### 获取截图base64字符串
+
+```php
+$screenshot = new \Screenshot\ScreenShot();
+
+//返回base64的图片，可用于本地保存
+$screenshot->getShot();
+```
+
 
 #### 特殊用法
 
